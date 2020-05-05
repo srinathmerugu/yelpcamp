@@ -1,0 +1,31 @@
+.former{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin: 0 auto;
+    transform: translate(-50%,-50%);
+    width: 280px;
+     
+}
+
+#button{
+    margin-top:5px; padding:2px;
+}
+#he{
+    
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+ 
+   
+
+}
+.card{
+    padding:0px;
+}
+
+#delete{
+    display:inline;
+}

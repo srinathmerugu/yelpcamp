@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+
+ <div id="he" class="text-center col-md-12">
+          <h1>WELCOME TO LOGIN</h1>
+         
+    </div>
+
+
+<div class="former">
+    <form action="/login" method="POST">
+    <input class="form-control mt-4 mb-2" type ="text" name="username" placeholder="Username">
+    <input class="form-control mb-2" type ="password" name="password" placeholder="Password">
+    <input  id="button" class=" btn btn-lg btn-success btn-block" type ="submit" value="Login">
+    
+</form>
+<a href="/register">New User? Sign Up</a>
+
+<a href="/forgot">Forgot Password?</a>
+</div>
+
+
+
+
+<%- include("partials/footer") %>

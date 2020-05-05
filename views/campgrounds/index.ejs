@@ -1,0 +1,65 @@
+<%- include("../partials/header") %>
+    
+  
+<div class="container">
+    <header class="jumbotron text-center  mt-4">
+        <div class="container">
+        <h1>WELCOME TO YELPCAMP</h1>
+        <p> View our hand picked campgrounds from all over the world</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+        </p>
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+         <div class="col-md-12">
+             <% if(noMatch !== null) { %>
+             <h3><%= noMatch %></h3>
+             <p>
+            	<form action="/campgrounds" method="GET" class="form-inline">
+            		<div class="form-group pl-5" style="margin: 0 auto;">
+            			<input type="text" name="search" placeholder="Campground search..." class="form-control">
+            			<input type="submit" value="Search" class="btn btn-success ml-1">
+            		</div>
+            	</form>
+            </p>
+             <% } %>
+         </div>
+    
+    
+    <div class="row text-center">
+        <% campgrounds.forEach(function(campground){ %>
+        <div  class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            
+            <div class="figure">
+                 <a href="/campgrounds/<%= campground._id %>">
+  <img  class="figure-img img-fluid rounded " src=" <%=campground.image%> " alt="<%=campground.name%>">
+  </a>
+  <div class="figure">
+      <a href="/campgrounds/<%= campground._id %>">
+    <h5 class="figure-caption text-capitalize font-italic"><%=campground.name%></h5>
+    </a>
+  </div>
+</div>
+               
+    
+        </div>
+  
+
+                 <% }); %>
+  
+    
+
+
+
+
+
+
+
+</div>
+
+
+<%- include("../partials/footer") %>
+
+

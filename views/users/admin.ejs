@@ -1,0 +1,94 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+  <div class="row">
+
+    <!-- side bar info  -->
+    <div class="col-md-3" style="margin: 25px auto">
+
+
+      <div class="list-group">
+        <li class="list-group-item"><a href="#all_campgrounds">Admin Campgrounds </a></li>
+        <li class="list-group-item"><a href="#all_users">Admins</a></li>
+      </div>
+
+    </div>
+
+
+    <!-- Main Editing Area  -->
+    <div class="col-md-9" style="margin: 25px auto">
+
+
+      <!-- Admin All campgrounds section -->
+      <div class="container" id="all_campgrounds" style="auto">
+
+        <h3 class="text-capitalize font-weight-normal font-italic">All Campgrounds</h3>
+        <hr>
+
+        <div class="row text-center ">
+          <% campgrounds.forEach(function(campground){ %>
+                <div class="col-md-4 col-sm-6">
+                  <figure class="figure">
+                      <a href="/campgrounds/<%= campground._id %>">
+                        <img class="img__img img-fluid rounded campground-list-item"
+                        src="<%= campground.image %>" alt="<%= campground.name %>" title="<%= campground.name %>">
+                        <figcaption class="figure-caption text-capitalize font-italic"><i class="fab fa-gripfire"></i> <%= campground.name %></figcaption>
+                      </a>
+                      <hr>
+                      <% if(currentUser.isAdmin){ %>
+                          <a class="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                          <form id="delete" class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                              <button class="btn btn-sm btn-danger">Delete</button>
+                          </form>
+                      <% } %>
+                 </figure>
+                </div>
+            <% }); %>
+        </div>
+      </div>
+
+      <!-- Admin All User section -->
+      <div class="container" id="all_users" style="margin: 100px auto">
+
+        <h3 class="text-capitalize font-weight-normal font-italic">Admins </h3>
+        <hr>
+
+        <div class="row text-center ">
+          <% users.forEach(function(user){ %>
+            <div class="col-md-3 col-sm-6">
+                  <figure class="figure">
+                      <a href="/users/<%= user._id %>">
+                        <img class="img__img img-fluid rounded user-list-item"
+                        src="<%= user.avatar %>" alt="<%= user.username %>" >
+                        <!-- Show User Name  -->
+                        <% if(!user.firstName || !user.lastName) { %>
+                          <figcaption class="figure-caption text-capitalize font-italic"><%= user.username %></figcaption>
+                        <% } else { %>
+                          <figcaption class="figure-caption text-capitalize font-italic"><%= user.firstName + ' '+ user.lastName %></figcaption>
+                        <% }; %>
+                      </a>
+                      <!-- Show Edit/Delete Button  -->
+                      <hr>
+                      <% if (user.isAdmin) { %>
+                        <h6 class="text-normal font-italic">Admin</h6>
+                      <% } else if( currentUser.isAdmin && !user._id.equals(currentUser._id)){ %>
+                          <a class="btn btn-sm btn-warning" href="/users/<%= user._id %>/edit">Edit</a>
+                        
+                          <form id="delete" class="delete-form" action = "/users/<%= user._id %>?_method=DELETE" method="POST">
+                              <button class="btn btn-sm btn-danger">Delete</button>
+                          </form>
+                      <% } %>
+                    </figure>
+                </div>
+            <% }); %>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

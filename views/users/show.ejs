@@ -1,0 +1,112 @@
+<%- include("../partials/header") %>
+<div class="container">
+    
+
+<h1 class="text-center  font-weight-light font-italic"><%= user.username.toUpperCase() %>'s PERSONAL INFO</h1>
+ <div class="card">
+    
+
+	<div class="row justify-content-center">
+		<div class="col-md-6 ">
+
+      <!-- Show Avatar & Email  -->
+      <% if (!user.avatar && !user.email) { %>
+        <div class="img-thumbnail img-fluid rounded">
+          <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="avatar">
+          <div class="img-caption text-center font-weight-light font-italic">
+            <!-- Show User Name  -->
+            <% if(!user.firstName || !user.lastName) { %>
+              <h3 class="text-capitalize "><%= user.username %></h3>
+            <% } else { %>
+              <h3 class="text-capitalize "><%= user.firstName + ' '+ user.lastName %></h3>
+            <% }; %>
+            <p>
+              User Don't have an Email Yet.
+            </p>
+          </div>
+        </div>
+      <% } else { %>
+        <div class="card-body">
+          <img  class="card-img-top p-0 " src="<%= user.avatar %>" alt="avatar">
+          <div class="img-caption text-center font-weight-light font-italic">
+            <!-- Show User Name  -->
+            <% if(!user.firstName || !user.lastName) { %>
+              <h3 class="text-capitalize "><%= user.username %></h3>
+            <% } else { %>
+              <h3 class="text-capitalize "><%= user.firstName + ' '+ user.lastName %></h3>
+            <% }; %>
+            <h5 class="font-weight-light font-italic text-center">
+              Email: <a href="mailto: <%= user.email %>"><%= user.email %></a>
+            </h5>
+              <% if(!user.intro) { %>
+                      <h5 class="text-capitalize font-weight-light font-itali text-center">No Intro yet.</h5>
+               <% } else { %>
+                      <h5 class="font-weight-light font-italic text-center">Bio: <%= user.intro %></h5>
+               <% }; %>
+              <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                      <a class="btn btn-sm btn-warning " href="/users/<%=user._id%>/edit">Edit Info</a>
+                      <form id="delete" class="delete-form" action = "/users/<%= user._id %>?_method=DELETE" method="POST">
+                              <button class="btn btn-sm btn-danger">Delete</button>
+                          </form>
+              <% } %>
+              
+              
+                   <% if(currentUser && currentUser.isAdmin) { %>
+          
+            <a class="btn btn-sm btn-success" href="/users/<%= user._id %>/admin">
+              <i class="fas fa-wrench"></i> Admin  </a>
+           
+        
+        <% }; %>
+
+
+              
+              
+              
+              
+          </div>
+        </div>
+      <% }; %>
+      
+  
+      
+     
+		</div>
+ </div>
+ 
+        
+         
+        
+   <div style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  "class="col-md-9  ">
+      <h3 class="text-capitalize text-center font-weight-normal font-italic"><%= user.username %>'s Campgrounds</h3>
+      <hr>
+      <div class="">
+        <div class="row text-center  ">
+          <% campgrounds.forEach(function(campground){ %>
+                <div class="col-md-4 col-sm-6 ">
+                  <figure class="figure">
+                      <a href="/campgrounds/<%= campground._id %>">
+                        <img class="img__img img-fluid rounded campground-list-item "
+                        src="<%= campground.image %>" alt="<%= campground.name %>" title="<%= campground.name %>">
+                        <figcaption class="figure-caption text-capitalize font-italic"><i class="fab fa-gripfire"></i> <%= campground.name %></figcaption>
+                      </a>
+                  </figure>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+  </div>
+      
+	
+		
+
+
+</div>
+
+</div>
+
+
+<%- include("../partials/footer") %>

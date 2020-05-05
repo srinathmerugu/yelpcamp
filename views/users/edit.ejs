@@ -1,0 +1,30 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <h1  class="text-center font-weight-light font-italic"><%= user.username.toUpperCase() %>'s PERSONAL INFO</h1>
+    <div style="width:330px; margin:0 auto">
+        
+    
+
+        <form  action="/users/<%=user._id%>?_method=PUT" method="POST" >
+            <label class="mt-3">UserName</label>
+            <input class="form-control " type ="text" name="user[username]" value="<%= user.username %>" disabled>
+                <small id="usernameHelpBlock" class="form-text text-muted mb-2">
+                  Sorry, You can't change your Username once after signup.
+                </small>
+             <label>First Name</label>    
+            <input class="form-control mb-2" type ="text" name="user[firstName]" value="<%= user.firstName%>" >
+             <label>Last Name</label>
+            <input class="form-control mb-2" type ="text" name="user[lastName]" value="<%=user.lastName %>" >
+             <label>Email</label>
+            <input class="form-control mb-2" type ="email" name="user[email]" value="<%= user.email %>" >
+             <label>Profile Image URL</label>
+            <input class="form-control mb-2" type ="text" name="user[avatar]" value="<%= user.avatar %>"  >
+            <label for="intro">Add Bio</label>
+             <textarea id="intro" class="form-control" rows="5" name="user[intro]"><%= user.intro %></textarea>
+            
+            <button id="button" class=" btn btn-lg btn-danger btn-block" >UPDATE</button>
+        </form>
+    </div>
+</div>
+<%- include("../partials/footer") %>

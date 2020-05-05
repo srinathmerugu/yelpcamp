@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<form  action="/forgot" method="POST">
+		    
+			<legend>Trouble Logging In?</legend>
+			<p>Enter your email and we'll send you a link to get back into your account</p>
+			<div style="width:80%;" class="form-group">
+				<label  for="email"><i class="  fas fa-user"></i> Email</label>
+				<input type="email" name="email" autofocus class="form-control">
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-primary" value="Reset Password">
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+
+
+
+
+<%- include("partials/footer") %>
