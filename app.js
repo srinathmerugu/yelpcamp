@@ -22,14 +22,14 @@ const commentRoutes         = require("./routes/comments"),
       campgroundsRoutes     = require("./routes/campgrounds"),
       indexRoutes           = require("./routes/index");
 
-//let url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp_v8"
+let url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp_v10"
 
-//let url2 = "mongodb://localhost/yelpcamp_v8";
-let url="mongodb+srv://srinathmerugu:vishal777@cluster0-6xkr9.mongodb.net/yelpcamp?retryWrites=true&w=majority";
+//let url2 = "mongodb://localhost/yelpcamp_v9";
+//let url="mongodb+srv://srinathmerugu:vishal777@cluster0-6xkr9.mongodb.net/yelpcamp?retryWrites=true&w=majority";
 mongoose.connect(url, 
 {   useNewUrlParser: true,
     useUnifiedTopology: true ,
-    useFindAndModify : true ,
+    useFindAndModify : false ,
     useCreateIndex: true
 }).then(() => {
     console.log("db connected");

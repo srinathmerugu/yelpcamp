@@ -36,9 +36,9 @@
                       </a>
                       <hr>
                       <% if(currentUser.isAdmin){ %>
-                          <a class="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                          <a class="btn btn-sm btn-primary" href="/campgrounds/<%= campground._id %>/edit"><i class="fas fa-pen"></i> Edit</a>
                           <form id="delete" class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                              <button class="btn btn-sm btn-danger">Delete</button>
+                              <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
                           </form>
                       <% } %>
                  </figure>
@@ -72,10 +72,10 @@
                       <% if (user.isAdmin) { %>
                         <h6 class="text-normal font-italic">Admin</h6>
                       <% } else if( currentUser.isAdmin && !user._id.equals(currentUser._id)){ %>
-                          <a class="btn btn-sm btn-warning" href="/users/<%= user._id %>/edit">Edit</a>
+                          <a class="btn btn-sm btn-primary" href="/users/<%= user._id %>/edit"><i class="fas fa-pen"></i> Edit </a>
                         
                           <form id="delete" class="delete-form" action = "/users/<%= user._id %>?_method=DELETE" method="POST">
-                              <button class="btn btn-sm btn-danger">Delete</button>
+                              <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
                           </form>
                       <% } %>
                     </figure>

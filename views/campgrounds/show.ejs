@@ -5,46 +5,80 @@
       <div class="col-md-3">
         <p class="lead">Yelp Camp </p>
           <div class="list-group">
-             <li class="list-group-item active">Info 1</li>
-             <li class="list-group-item">Info 2</li>
-             <li class="list-group-item">Info 3</li>
+             <li class="list-group-item text-center font-weight-light font-italic "><%= campground.author.username.toUpperCase() %></li>
+             <li class="list-group-item text-center font-weight-light font-italic"><%= campground.name.toUpperCase() %></li>
+             <li class="list-group-item text-center font-weight-light font-italic"><%= campground.location %></li>
           </div>
+            <div id="map">
+              <script>
+  function initMap() {
+    var lat = <%= campground.lat %>;
+    var lng = <%= campground.lng %>;
+    var center = {lat: lat, lng: lng };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= campground.name %><br />
+      <%= campground.location %></strong>
+      <p><%= campground.description %></p>
+      
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAetBE_LExvM82uMTPyZBD_KWIfwl4Wb8E&callback=initMap"></script>
+
+            </div>
       </div>
+      
        <div class="col-md-9">
           <div class="card">
              <img  class="card-img-top p-0" src=" <%=campground.image%> " alt="<%=campground.name%>">
                 <div class="card-body">
                  <h4 class="text-right">₹<%=campground.price%>/night</h4>
-                   <h3>  <a> <%=campground.name%> </a> </h3>
+                   <h3>  <a> <%=campground.name.toUpperCase()%> </a> </h3>
+                    <em><p class="font-italic"><%= campground.location %></p></em>
                     <p class="card-text lead"><%=campground.description %></p>
                     <p class="lead">
                     <em>Submitted by:<a href="/users/<%= campground.author.id%>"> <strong> <%= campground.author.username %></strong> </a>  <%= moment(campground.createdAt).fromNow() %></em>
                     </p>
                         <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                        <a  class="btn btn-sm btn-warning " href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+                        <a  class="btn btn-sm btn-primary " href="/campgrounds/<%=campground._id%>/edit"><i class="far fa-edit"></i> Edit</a>
                             <form id="delete" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-                                <button  class="btn btn-sm btn-danger">Delete</button>
+                                <button  class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
                             </form>
                             <% } %>
                 </div>
            </div>
            <div class="card-header mt-2">
               <div class="text-right">
-                  <a class="btn btn-success" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new comment</a>
+                
+                  <a class="btn btn-success" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment"><i class="fas fa-comment-alt"></i> New comment </a>
               </div>
               <hr>
                 
                 
                 <!--Comment section title-->
-  <h4><strong>Comments <span class="glyphicon glyphicon glyphicon-comment" aria-hidden="true"></span></strong></h4>
+  <h4><strong>Comments <i class="fas fa-comments"></i></strong></h4>
 
   <!--Collapse Add a comment form START-->
   <div class="collapse" id="collapseComment">
     <div class="well">
         <% if(!currentUser) { %>
       <!--If the user is not logged in, direct him to the login page-->
-      <h5>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
+      <h5><i class="fas fa-comment-slash"></i>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
         <% } %>
         <% if(currentUser || currentUser && currentUser.isAdmin) { %>
       <!--If the user is logged in, show the new comment form-->
@@ -57,7 +91,7 @@
           <textarea class="form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form" rows="5" cols="70"></textarea>
         </div>
         <div class="form-group">
-          <button class="btn btn-success btn-sm">Comment <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+          <button class="btn btn-success btn-sm">Comment </button>
         </div>
       </form>
         <% } %>
@@ -96,12 +130,12 @@
       <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
         <% if (currentUser && currentUser._id.equals(comment.author.id) || currentUser && currentUser.isAdmin) { %>
              <!--Edit button used for collapsing the edit comment form-->
-      <a class="btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">
-        Edit</a>
+      <a class="btn btn-sm btn-primary" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">
+       <i class="far fa-edit"></i> Edit</a>
 
       <!--Delete comment button-->
       <form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
-        <button class="btn btn-sm btn-danger">Delete</button>
+        <button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
       </form>
 
       <!--Edit comment form-->
@@ -116,7 +150,7 @@
               <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form<%= comment._id %>" rows="5" cols="70"><%= comment.text %></textarea>
             </div>
             <div class="form-group">
-              <button class="btn btn-warning btn-sm">Edit <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+              <button class="btn btn-primary btn-sm">Edit Comment <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
             </div>
           </form>
         </div>
@@ -136,7 +170,6 @@
        </div>
    </div>
 </div>
-
 
 
   

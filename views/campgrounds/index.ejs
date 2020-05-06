@@ -4,7 +4,7 @@
 <div class="container">
     <header class="jumbotron text-center  mt-4">
         <div class="container">
-        <h1>WELCOME TO YELPCAMP</h1>
+        <h1><i class="fas fa-campground"></i>WELCOME TO YELPCAMP</h1>
         <p> View our hand picked campgrounds from all over the world</p>
         <p>
             <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
@@ -12,8 +12,8 @@
         </div>
     </header>
     
-    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-         <div class="col-md-12">
+    <div class="row text-center" >
+         <div class="col-lg-12 ">
              <% if(noMatch !== null) { %>
              <h3><%= noMatch %></h3>
              <p>
@@ -26,19 +26,23 @@
             </p>
              <% } %>
          </div>
-    
+    </div>
     
     <div class="row text-center">
         <% campgrounds.forEach(function(campground){ %>
         <div  class="col-lg-3 col-md-4 col-sm-6 mb-4">
             
-            <div class="figure">
+            <div class="card">
                  <a href="/campgrounds/<%= campground._id %>">
-  <img  class="figure-img img-fluid rounded " src=" <%=campground.image%> " alt="<%=campground.name%>">
+  <img  class="card-img-top " src=" <%=campground.image%> " alt="<%=campground.name%>">
   </a>
-  <div class="figure">
+  <div class="card">
+      
       <a href="/campgrounds/<%= campground._id %>">
-    <h5 class="figure-caption text-capitalize font-italic"><%=campground.name%></h5>
+          <div class="card-body">
+              <h5 class="card-title text-capitalize font-italic"><%=campground.name.toUpperCase()%></h5>
+          </div>
+    
     </a>
   </div>
 </div>
