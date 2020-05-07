@@ -22,9 +22,7 @@ a{
     text-decoration: none !important;
     
 }
-a:link, a:visited {
-    color:black;
-}
+
 .card{
     padding:0px;
 }

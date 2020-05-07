@@ -56,11 +56,12 @@
                     </p>
                         <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                             <button class="btn btn-sm btn-primary" onclick="location.href = '/campgrounds/<%=campground._id%>/edit' ;">
-            <i class="fas fa-user-edit"></i> Edit
+            <i class="fas fa-pen"></i> Edit
         </button>
                        
                             <form id="delete" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
                                 <button  class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                                
                             </form>
                             <% } %>
                 </div>
