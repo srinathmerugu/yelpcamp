@@ -55,7 +55,10 @@
                     <em>Submitted by:<a href="/users/<%= campground.author.id%>"> <strong> <%= campground.author.username %></strong> </a>  <%= moment(campground.createdAt).fromNow() %></em>
                     </p>
                         <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                        <a  class="btn btn-sm btn-primary " href="/campgrounds/<%=campground._id%>/edit"><i class="far fa-edit"></i> Edit</a>
+                            <button class="btn btn-sm btn-primary" onclick="location.href = '/campgrounds/<%=campground._id%>/edit' ;">
+            <i class="fas fa-user-edit"></i> Edit
+        </button>
+                       
                             <form id="delete" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
                                 <button  class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
                             </form>
@@ -64,8 +67,7 @@
            </div>
            <div class="card-header mt-2">
               <div class="text-right">
-                
-                  <a class="btn btn-success" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment"><i class="fas fa-comment-alt"></i> New comment </a>
+              <a id="clr" class="btn btn-success" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment"><i class="fas fa-comment-alt"></i> New comment </a>
               </div>
               <hr>
                 
@@ -130,7 +132,7 @@
       <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
         <% if (currentUser && currentUser._id.equals(comment.author.id) || currentUser && currentUser.isAdmin) { %>
              <!--Edit button used for collapsing the edit comment form-->
-      <a class="btn btn-sm btn-primary" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">
+      <a  id="clr" class="btn btn-sm btn-primary" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">
        <i class="far fa-edit"></i> Edit</a>
 
       <!--Delete comment button-->

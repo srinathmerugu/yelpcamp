@@ -17,10 +17,13 @@
   top: 20%;
   left: 50%;
   transform: translate(-50%,-50%);
-
- 
-   
-
+}
+a{
+    text-decoration: none !important;
+    
+}
+a:link, a:visited {
+    color:black;
 }
 .card{
     padding:0px;
@@ -50,7 +53,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
- 
+ border:2px solid grey;
       background-color: #fff;
       transform: rotateY(20deg);
       transform: rotateX(20deg);
@@ -61,3 +64,10 @@
   
   
 }
+
+#clr{
+    color:white;
+}
+
+
+

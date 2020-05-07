@@ -11,7 +11,7 @@
 
       <!-- Show Avatar & Email  -->
       <% if (!user.avatar && !user.email) { %>
-        <div class="img-thumbnail img-fluid rounded">
+        <div class="card-img-top p-0 justify-content-center  col-6 col-md-9">
           <img src="https://cdn0.iconfinder.com/data/icons/avatars-6/500/Avatar_boy_man_people_account_client_male_person_user_work_sport_beard_team_glasses-512.png" alt="avatar">
           <div class="img-caption text-center font-weight-light font-italic">
             <!-- Show User Name  -->
@@ -44,7 +44,7 @@
                       <h5 class="font-weight-light text-center">Bio: <%= user.intro %></h5>
                <% }; %>
               <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
-                      <a class="btn btn-sm btn-primary " href="/users/<%=user._id%>/edit"><i class="fas fa-user-edit"></i> Edit Info</a>
+                      <a id="clr" class="btn btn-sm btn-primary " href="/users/<%=user._id%>/edit"><i class="fas fa-user-edit"></i> Edit Info</a>
                       <form id="delete" class="delete-form" action = "/users/<%= user._id %>?_method=DELETE" method="POST">
                               <button class="btn btn-sm btn-danger">Delete Profile</button>
                           </form>
@@ -53,7 +53,7 @@
               
                    <% if(currentUser && currentUser.isAdmin) { %>
           
-            <a class="btn btn-sm btn-success" href="/users/<%= user._id %>/admin">
+            <a id="clr" class="btn btn-sm btn-success" href="/users/<%= user._id %>/admin">
               <i class="fas fa-wrench"></i> Admin  </a>
            
         

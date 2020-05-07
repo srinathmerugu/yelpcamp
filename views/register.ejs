@@ -9,29 +9,20 @@
 
     <form action="/register" method="POST">
     <input class="form-control mt-3 mb-2" type ="text" name="username" placeholder="Username">
-    <input class="form-control mb-2" type ="text" name="firstName" placeholder="Firstname">
-     <input class="form-control mb-2" type ="text" name="lastName" placeholder="Lastname">
-     <input class="form-control mb-2" type ="email" name="email" placeholder="email">
-     <input class="form-control mb-2" type ="text" name="avatar" placeholder="Profile Image url">
-     <input class="form-control mb-2" type ="password" name="password" placeholder="Password">
-     <input class="form-control mb-2" type ="password" name="adminCode" placeholder="Admin Code">
+    <input class="form-control mb-2" type ="text" name="firstName" placeholder="Firstname" >
+     <input class="form-control mb-2" type ="text" name="lastName" placeholder="Lastname" >
+     <input class="form-control mb-2" type ="email" name="email" placeholder="email" >
+     <input class="form-control mb-2" type ="text" name="avatar" placeholder="Profile Image url" title="Enter profile image url">
+     <input class="form-control mb-2" type ="password" name="password" placeholder="Password" pattern=".{6,}" title="Six or more characters" >
+     <input class="form-control mb-2" type ="password" name="adminCode" placeholder="Admin Code (Optional)" title="Enter if u have admin code else no need">
      
      <button id="button" class=" btn btn-lg btn-primary btn-block"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
-     
 
     
 </form>
     <a href="/login">Already A User?Login</a>
-    <div style="margin:0 auto;" class="orSeperator text-center"><span> OR </span></div>
-
-            <a id="facebookButton" id="button" type="button" href="/auth/facebook" class="btn btn-facebook btn-md btn-success text-center ml-5">
-                <span class="icon"><i class="fa fa-facebook"></i></span>
-                <span class="btn-text">Sign up with Facebook</span>
-            </a>
-            </div>
 
 </div>
-
 
     </div>
 
