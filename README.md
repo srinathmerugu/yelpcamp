@@ -8,6 +8,15 @@ YelpCamp is a RESTful web-app I made using Node.js, MongoDB and express.
 **This website is not intended for public use.**
 
 YelpCamp allows users to:
+- Search for Campgrounds by Campground name / username / location
+- Signup with an username/email address
+- Post Campgrounds
+- Edit & Update & Delete Campgrounds
+- Comment on Campgrounds
+- Edit & Update & Delete Comments
+- Add Location Using Google Maps Using Geo Location API
+- Upload Images To DB Using Cloudinary API
+
 
 ## YelpCamp is a RESTful web app i made using Node.js, MongoDb, Express.js
  A RESTful Route is a route that provides mapping between HTTP verbs (get, post, put, delete, patch) to controller CRUD actions  
