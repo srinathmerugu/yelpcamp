@@ -60,4 +60,6 @@ Or else you can use few test users to access the website
 - username : user
 - password : user123
 
+![yelpcamp3](https://user-images.githubusercontent.com/62550907/81577192-c66c1080-93c6-11ea-9895-68cecedf62d3.png)
+![yelpcamp4](https://user-images.githubusercontent.com/62550907/81577195-c79d3d80-93c6-11ea-8890-d16a8fb4597d.png)
 
