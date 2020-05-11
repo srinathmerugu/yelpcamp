@@ -15,6 +15,7 @@ YelpCamp allows users to:
 - Add Location Using Google Maps (Using Geo Location API)
 - Upload Images To DB Using Cloudinary API
 - User model (SignUp/SignIn)
+- User Can Reset Password (Added Forgot Password)
 - Show Time since posted (campgrounds/comments)
 - Style with Bootstrap 4
 - Made Responsive For All Types Of Devices
