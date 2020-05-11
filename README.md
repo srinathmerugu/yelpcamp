@@ -10,12 +10,13 @@ YelpCamp is a RESTful web-app I made using Node.js, MongoDB and express.
 YelpCamp allows users to:
 - Search for Campgrounds by Campground name / username / location
 - Signup with an username/email address
-- Post Campgrounds
-- Edit & Update & Delete Campgrounds
-- Comment on Campgrounds
-- Edit & Update & Delete Comments
-- Add Location Using Google Maps Using Geo Location API
+- Post Campgrounds,Edit & Update & Delete Campgrounds 
+- Comment on Campgrounds,Edit & Update & Delete Comments
+- Add Location Using Google Maps (Using Geo Location API)
 - Upload Images To DB Using Cloudinary API
+- User model (SignUp/SignIn)
+- Show Time since posted (campgrounds/comments)
+- Style with Bootstrap 4
 
 ![yelpcamp](https://user-images.githubusercontent.com/62550907/81576370-cfa8ad80-93c5-11ea-95ed-530b640b637e.png)
 
