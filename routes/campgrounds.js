@@ -34,7 +34,7 @@ cloudinary.config({
 var options = {
   provider: 'google',
   httpAdapter: 'https',
-  apiKey:"AIzaSyDDMBxXCMv-qIDChhLnQxKjMCwHX_aa8ok",
+  apiKey:process.env.MAP_API,
   formatter: null
 };
  
