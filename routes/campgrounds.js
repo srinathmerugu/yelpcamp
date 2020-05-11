@@ -73,41 +73,7 @@ router.get("/", function(req, res){
     }
 });
 
-//=======================
-//CREATE - add new campground to db
-//=======================
 
-/*router.post("/",middleware.isLoggedIn,upload.single('image'),function(req,res){
-    cloudinary.v2.uploader.upload(req.file.path, function(result) {
-     
-  // add cloudinary url for the image to the campground object under image property
-    let image = req.body.image = result.secure_url;
-    let name=req.body.name;
-    let price=req.body.price;
-    let desc=req.body.description;
-    let author ={
-        id: req.user._id,
-        username : req.user.username
-    }
-    let newCampground = {name:name,price:price, image:image, description:desc , author:author};
-    
-    //create a new camp and save it to db
-    
-    Campground.create(newCampground, function(err, newlycreated){
-        if(err){
-            req.flash('error', err.message);
-            return res.redirect('back');
-        }
-        else{
-            req.flash("success","Campground Added Successfully");
-           res.redirect("/campgrounds");
-        }
-    });
-
-    });
-    
-});
-*/
 
 //=======================
 //CREATE - add new campground to db
