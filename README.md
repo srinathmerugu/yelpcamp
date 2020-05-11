@@ -42,7 +42,7 @@ What is CRUD?
 
 ## TESTING THE APP:
 - Test the functionality of the website by signing up and creating/editing campgrounds,comments.
-Or else You Can Use few test users to access the website :
--FOR USER LOGIN : 
+Or else You Can Use few test users to access the website 
+- FOR USER LOGIN : 
 - username : user
 - password : user123
