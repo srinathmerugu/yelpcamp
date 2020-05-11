@@ -1,7 +1,5 @@
-# yelpcamp
-Web app that allows users to view, post, comment on campgrounds. Made with Express.js and Node js
 # Yelp Camp
-
+Web app that allows users to view, post, comment on campgrounds. Made with Express.js and Node js
 
 ## Summary
 
