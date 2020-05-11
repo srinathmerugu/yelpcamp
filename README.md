@@ -32,7 +32,7 @@ What is CRUD?
 - Admin Authentication to have full control over the website
 - Image Storage via Cloudination
 - Google Maps API to render campsite location
-- Added forgot password option to reset the password for the user using nodemailer package(sends a reset email password link to ur given -ail id)
+- Added forgot password option to reset the password for the user using nodemailer package(sends a reset email password link to ur given mail id)
 - Deployed on Heroku
 - A Fuzzy Search to search based on any campground/user/location.
 - Database hosted on MongoDB
@@ -43,5 +43,6 @@ What is CRUD?
 ## TESTING THE APP:
 - Test the functionality of the website by signing up and creating/editing campgrounds,comments.
 Or else You Can Use few test users to access the website :
--FOR USER LOGIN : username : user
-                 password : user123
+-FOR USER LOGIN : 
+- username : user
+- password : user123
