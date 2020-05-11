@@ -17,6 +17,7 @@ YelpCamp allows users to:
 - User model (SignUp/SignIn)
 - Show Time since posted (campgrounds/comments)
 - Style with Bootstrap 4
+- Made Responsive For All Types Of Devices
 
 ![yelpcamp](https://user-images.githubusercontent.com/62550907/81576370-cfa8ad80-93c5-11ea-95ed-530b640b637e.png)
 
