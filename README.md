@@ -17,6 +17,10 @@ YelpCamp allows users to:
 - Add Location Using Google Maps Using Geo Location API
 - Upload Images To DB Using Cloudinary API
 
+## Stack and Features
+
+**Stack:** NodeJS, Express, MongoDB
+
 
 ## YelpCamp is a RESTful web app i made using Node.js, MongoDb, Express.js
  A RESTful Route is a route that provides mapping between HTTP verbs (get, post, put, delete, patch) to controller CRUD actions  
@@ -41,8 +45,7 @@ What is CRUD?
 - User can edit,update his information and can delete his account
 
 ## TESTING THE APP:
-- Test the functionality of the website by signing up and creating/editing campgrounds,comments.
-Or else You Can Use few test users to access the website 
-- FOR USER LOGIN : 
+- Test the functionality of the website by signing up and creating/editing campgrounds,comments,
+Or else you can use few test users to access the website  
 - username : user
 - password : user123
