@@ -46,9 +46,17 @@ What is CRUD?
 - EJS for templating
 - Responsive Website Design using Bootstrap.
 - User can edit,update his information and can delete his account
+![yelpcamp1](https://user-images.githubusercontent.com/62550907/81576644-231afb80-93c6-11ea-82c0-83304e2fcd9c.png)
+
+
+![yelpcamp2](https://user-images.githubusercontent.com/62550907/81576666-2910dc80-93c6-11ea-85cf-79b93aeec72a.png)
+
+
 
 ## TESTING THE APP:
 - Test the functionality of the website by signing up and creating/editing campgrounds,comments,
 Or else you can use few test users to access the website  
 - username : user
 - password : user123
+
+
