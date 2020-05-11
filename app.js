@@ -23,9 +23,6 @@ const commentRoutes         = require("./routes/comments"),
       indexRoutes           = require("./routes/index");
 
 let url =  process.env.DATABASEURL || "mongodb://localhost/yelpcamp_v12";
-
-//let url2 = "mongodb://localhost/yelpcamp_v9";
-//let url="mongodb+srv://srinathmerugu:vishal777@cluster0-6xkr9.mongodb.net/yelpcamp?retryWrites=true&w=majority";
 mongoose.connect(url, 
 {   useNewUrlParser: true,
     useUnifiedTopology: true ,
